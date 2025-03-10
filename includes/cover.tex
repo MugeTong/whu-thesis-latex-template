@@ -1,29 +1,44 @@
 %% cover.tex - 封面单独文件
-
 % 设置本页的页眉页脚为空，避免页码出现
 \thispagestyle{empty}
+% 封面页重新定义页边距
+\newgeometry{
+    top=2.5truecm,
+    bottom=2.7truecm,
+    left=3truecm,
+    right=3truecm,
+}
+\begin{center}  % 居中设置
+\vspace*{2.1cm}  % 强制插入顶部空白
 
-% 居中设置
-\begin{center}
-
-\vspace*{2.1cm}
 % 武汉大学校徽
-\includegraphics[width=0.3\textwidth]{images/whulogo.pdf}
-\vspace{1.5cm}
-{\songti \zihao{1}
-\makebox[9cm][s]{武汉大学本科毕业论文}
-}\\
-\vspace{3.6cm}
-{\heiti \zihao{2} \the\TitleChinese \par}%
-\vfill\vfill\vfill
-{\songti\zihao{-3}
-\begin{tabular}{cp{5cm}c}
-    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{院\hfill (系)\hfill 名\hfill 称：}} & { {}\raisebox{-3ex}[0pt]{\the\SchoolChinese}\hfill{}} & \\[3ex]
-    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill  业\hfill 名\hfill 称：}} & { {}\raisebox{-3ex}[0pt]{\the\MajorChinese}\hfill{}} & \\[3ex]
-    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill  生\hfill 姓\hfill 名：}} & { {}\raisebox{-3ex}[0pt]{\the\AuthorChinese}\hfill{}} & \\[3ex]
-    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill  导\hfill 教\hfill 师：}} & { {}\raisebox{-3ex}[0pt]{\the\SupervisorChinese}\hfill{}} & \\[3ex]
+\includegraphics[width=0.33\textwidth]{whu-logo.png}
+\vspace{1.34cm}
+
+%  本科毕业论文（设计）文本
+{\songti \zihao{2} \textbf{本科毕业论文（设计）}}
+\vspace{3.25cm}
+
+% 论文标题
+{\kaishu \zihao{1} \the\TitleChinese}
+\vfill  % 填充中间的空白
+
+% 作者信息
+{\songti \zihao{4}
+\begin{tabular}{c p{5.2cm}<{\centering}}
+    \makebox[5em][s]{姓 \hfill 名：} & \makebox[8em][s]{\the\AuthorChinese} \\[1ex]
+    \makebox[5em][s]{学 \hfill 号：} & \the\StudentNumber \\[1ex]
+    \makebox[5em][s]{专 \hfill 业：} & \makebox[8em][s]{\the\MajorChinese} \\[1ex]
+    \makebox[5em][s]{学 \hfill 院：} & \makebox[8em][s]{\the\SchoolChinese} \\[1ex]
+    \makebox[5em][s]{指 \hfill 导 \hfill 老 \hfill 师：} & \makebox[8em][s]{\the\SupervisorChinese} \\[1ex]
 \end{tabular}
 }
-\par
-\vspace{2.6cm}{{\songti \zihao{3} \the\DateChinese \par}}
-\end{center}
+\vspace{4cm}
+
+% 日期
+{\songti \zihao{4} \makebox[8em][s]{\the\DateChinese}}
+
+\end{center}%
+
+% 恢复cls文件中定义的页边距
+\restoregeometry

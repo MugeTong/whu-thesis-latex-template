@@ -17,10 +17,10 @@
 
 % 设置页边距
 \RequirePackage[
-    top=2.5truecm,  % 上边距 2.5cm
-    bottom=2truecm,  % 下边距 2cm
-    left=3truecm,  % 左边距 3cm
-    right=3truecm,  % 右边距 3cm
+    top=2.5truecm,
+    bottom=2truecm,
+    left=2.5truecm,
+    right=2truecm,
     includefoot,  % 页脚计入页边距
     xetex,  % 指定 XeTeX 引擎
 ]{geometry}
@@ -28,15 +28,17 @@
 \RequirePackage{fancyhdr}  % 页眉页脚宏包
 \pagestyle{fancyplain}  % 自定义正文页面
 \fancyhf{}  % 清除以前对页眉页脚的设置
-\renewcommand{\headrulewidth}{0pt}  % 取消页眉线
-\fancyfoot[C]{-\,\thepage\,-}  % 页脚居中显示页码，如 - 1 -
+\fancyhead[C]{武汉大学本科毕业论文（设计）}  % 页眉添加“武汉大学本科毕业论文（设计）”
+\fancyfoot[C]{\songti \zihao{5} \thepage}  % 页脚居中显示页码，如 1
 % 设定特殊页面如章节的页眉页脚
 \fancypagestyle{plain}{
 \fancyhead{}  % 清除页眉
 \fancyfoot{}  % 清除页脚
 \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
-\fancyfoot[C]{-\,\thepage\,-}
+\fancyfoot[C]{\zihao{5} \thepage}
 }
+% 设置1.5倍行距，字体间距为标准间距，无需设置
+\linespread{1.5}
 
 
 % 定义论文有关信息的令牌列表
@@ -68,6 +70,7 @@
 \RequirePackage{color,xcolor}               % 颜色宏包
 \RequirePackage{enumerate}                  % 拓展列表编号样式
 \RequirePackage{hyperref}                   % 超链接宏包
+\RequirePackage{makecell}                   % 表格特定列居中
 
 
 % 定义打印选项，隐藏超链接颜色
