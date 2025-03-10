@@ -10,7 +10,8 @@
     oneside,  % 单面打印
     zihao=-4,  % 正文字号为小四
 ]{ctexbook}  % 使用 ctexbook 文档类
-% 将用户定义的选项传递给 ctexbook
+\setmainfont{Times New Roman}
+% 将用户定义的其他选项传递给 ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 
@@ -26,12 +27,13 @@
 ]{geometry}
 % 设定页眉页脚
 \RequirePackage{fancyhdr}  % 页眉页脚宏包
+\setlength{\headheight}{14.5pt}  % 避免页眉高度不足
 \pagestyle{fancyplain}  % 自定义正文页面
 \fancyhf{}  % 清除以前对页眉页脚的设置
 \fancyhead[C]{武汉大学本科毕业论文（设计）}  % 页眉添加“武汉大学本科毕业论文（设计）”
 \fancyfoot[C]{\songti \zihao{5} \thepage}  % 页脚居中显示页码，如 1
 % 设定特殊页面如章节的页眉页脚
-\fancypagestyle{plain}{
+\fancypagestyle{plain}{%
 \fancyhead{}  % 清除页眉
 \fancyfoot{}  % 清除页脚
 \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
