@@ -1,0 +1,29 @@
+%% cover.tex - 封面单独文件
+
+% 设置本页的页眉页脚为空，避免页码出现
+\thispagestyle{empty}
+
+% 居中设置
+\begin{center}
+
+\vspace*{2.1cm}
+% 武汉大学校徽
+\includegraphics[width=0.3\textwidth]{whulogo.eps}
+\vspace{1.5cm}
+{\songti \zihao{1}
+\makebox[9cm][s]{武汉大学本科毕业论文}
+}\\
+\vspace{3.6cm}
+{\heiti \zihao{2} \the\TitleChinese \par}%
+\vfill\vfill\vfill
+{\songti\zihao{-3}
+\begin{tabular}{cp{5cm}c}
+    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{院\hfill (系)\hfill 名\hfill 称：}} & { {}\raisebox{-3ex}[0pt]{\the\SchoolChinese}\hfill{}} & \\[3ex]
+    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill  业\hfill 名\hfill 称：}} & { {}\raisebox{-3ex}[0pt]{\the\MajorChinese}\hfill{}} & \\[3ex]
+    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill  生\hfill 姓\hfill 名：}} & { {}\raisebox{-3ex}[0pt]{\the\AuthorChinese}\hfill{}} & \\[3ex]
+    \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill  导\hfill 教\hfill 师：}} & { {}\raisebox{-3ex}[0pt]{\the\SupervisorChinese}\hfill{}} & \\[3ex]
+\end{tabular}
+}
+\par
+\vspace{2.6cm}{{\songti \zihao{3} \the\DateChinese \par}}
+\end{center}
