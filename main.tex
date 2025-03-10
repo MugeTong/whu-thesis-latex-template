@@ -1,0 +1,38 @@
+%% 请使用 XeLaTeX 编译本文.
+% \documentclass{WHUBachelor}% 选项 forprint: 交付打印时添加, 避免彩色链接字迹打印偏淡. 即使用下一行:
+\documentclass[forprint]{thesis}
+
+% 整个文档开始
+\begin{document}
+
+% 填写下面的令牌信息
+\AuthorChinese{}                                                % 姓名
+\AuthorEnglish{}                                                % 姓名英文
+\StudentNumber{}                                                % 学号
+\SecurityLevel{}                                                % 密级
+\TitleChinese{武汉大学本科毕业论文~\LaTeX~模板}                     % 中文题目
+\TitleEnglish{A \LaTeX~Thesis Template for Wuhan University}    % 英文题目
+\SupervisorChinese{}                                            % 指导教师中文名
+\SupervisorEnglish{}                                            % 指导教师英文名
+\DateChinese{二〇二五年三月}                                      % 中文日期
+\DateEnglish{}                                                  % 英文日期
+\SchoolChinese{}                                                % 学校中文名
+\SchoolEnglish{}                                                % 学校英文名
+\DepartmentChinese{}                                            % 学院中文名
+\DepartmentEnglish{}                                            % 学院英文名
+\MajorChinese{}                                                 % 学科专业中文名
+\MajorEnglish{}                                                 % 学科专业英文名
+
+% 添加封面
+\pdfbookmark[0]{封面}{title}  % 封面页加到 PDF 书签
+\makecover  % 调用命令，生成论文封面
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%前置部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter  % 前置部分，使用罗马字母编号
+\pagenumbering{Roman}  % 前置部分使用大写罗马字母编号
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%论文正文%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+早上好，今天天气不错
+
+\end{document}

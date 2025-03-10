@@ -1,10 +1,14 @@
 % 提供一个武汉大学学士学位毕业论文模板，本模板基于 ctexbook 文档类
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis}[2025/03/10 v0.0.1 Wuhan University Thesis Template for Bachelor Degree]
+\ProvidesClass{thesis}[
+    2025/03/10
+    v0.0.2
+    Wuhan University Thesis Template for Bachelor Degree.
+]
 \LoadClass[
-a4paper,  % A4 纸张
-oneside,  % 单面打印
-zihao=-4,  % 正文字号为小四
+    a4paper,  % A4 纸张
+    oneside,  % 单面打印
+    zihao=-4,  % 正文字号为小四
 ]{ctexbook}  % 使用 ctexbook 文档类
 % 将用户定义的选项传递给 ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
@@ -21,6 +25,7 @@ zihao=-4,  % 正文字号为小四
     xetex,  % 指定 XeTeX 引擎
 ]{geometry}
 % 设定页眉页脚
+\RequirePackage{fancyhdr}  % 页眉页脚宏包
 \pagestyle{fancyplain}  % 自定义正文页面
 \fancyhf{}  % 清除以前对页眉页脚的设置
 \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
@@ -77,14 +82,14 @@ zihao=-4,  % 正文字号为小四
     \hypersetup{citecolor=magenta,linkcolor=blue}
 \fi
 
+% 设定图片文件夹目录
+\graphicspath{{figures/}}
+
 % 初始化封面创建命令，引入 cover.tex
 \def\makecover{\input{includes/cover}}
-
 % 初始化原创性声明创建命令，引入 original.tex
 \def\makeoriginal{\input{includes/original}}
-
 % 初始化摘要创建命令，引入 abstract.tex
 \def\makeabstract{\input{includes/abstract}}
-
 % 设定目录
 \ctexset{contentsname={\heiti \zihao{-2} \textmd{目\qquad 录}}}
