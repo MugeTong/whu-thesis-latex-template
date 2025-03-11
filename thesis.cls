@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis}[
     2025/03/10
-    v0.1.1
+    v0.1.2
     Wuhan University Thesis Template for Bachelor Degree.
 ]
 \LoadClass[
@@ -118,22 +118,14 @@
 \newenvironment{cnabstract}{%
     \newpage  % 新建页面
     \thispagestyle{frontmatter}  % 使用 plain 样式，仅包含页码
-    \phantomsection  % 添加锚点
-    \addcontentsline{toc}{chapter}{\cnabstractname}   % 添加到目录
-    % 中文标题
-    {\centering \heiti \zihao{-2} \ziju{1} \cnabstractname \par}
-    \vspace{18pt}
+    \chapter[\cnabstractname]{\ziju{2}\cnabstractname}  % 中文标题
     % 定义后续文字格式
     \songti \zihao{-4}
 }{\par}
 \newenvironment{enabstract}{%
     \newpage  % 新建页面
     \thispagestyle{frontmatter}  % 使用 frontmatter 样式，仅包含页码
-    \phantomsection  % 添加锚点
-    \addcontentsline{toc}{chapter}{\enabstractname}  % 添加到目录
-    % 英文标题
-    {\centering \bfseries \zihao{-2} \enabstractname \par}
-    \vspace{18pt}
+    \chapter[\enabstractname]{\bf\enabstractname}  % 英文标题
     % 定义后续文字格式
     \songti \zihao{-4}
 }{\par}
