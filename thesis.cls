@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis}[
     2025/03/10
-    v0.1.0
+    v0.1.1
     Wuhan University Thesis Template for Bachelor Degree.
 ]
 \LoadClass[
@@ -155,6 +155,14 @@
 \ctexset{contentsname={\ziju{1}目录}}
 \renewcommand\cfttoctitlefont{\hfill\heiti\zihao{-2}}
 \renewcommand\cftaftertoctitle{\hfill}
+% 目录标题前后间距
+\renewcommand{\cftbeforetoctitleskip}{0pt}
+\renewcommand{\cftaftertoctitleskip}{0pt}
+% 清除章节条前的额外间距
+\renewcommand{\cftbeforechapskip}{0pt}
+\renewcommand{\cftbeforesecskip}{0pt}
+\renewcommand{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftbeforesubsubsecskip}{0pt}
 % 调整目录中章节条的字体和粗细
 \renewcommand{\cftchapfont}{\zihao{-4}\bfseries\songti}
 \renewcommand{\cftchappagefont}{\zihao{-4}\bfseries\rmfamily}
