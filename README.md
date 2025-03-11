@@ -1,7 +1,7 @@
 # WHU-THESIS-LATEX-TEMPLATE
 武汉大学学士学位毕业论文 LaTeX 模板(2025).
 
-## 使用方法
+## 快速开始
 下载模板文件, 使用 `XeLaTeX` 编译 `main.tex` 即可.
 
 ## 目录结构
@@ -11,11 +11,11 @@ WHU-THESIS-LATEX-TEMPLATE   # 根目录
 │  README.md                # 说明文件
 │  thesis.cls               # 文档类文件, 基于 ctexbook
 ├─includes                  # 前置及后置部分页面文件
-|      cover.tex            # 封面
-|      originality.tex      # 原创性声明及版权使用授权书
+│cover.tex                  # 封面
+│      originality.tex      # 原创性声明及版权使用授权书
 │      abstract.tex         # 中英文摘要
-├─figures					# 图片文件夹，存放图像
-|      whu-logo.png			# 武汉大学中文文字
+├─figures                   # 图片文件夹，存放图像
+│      whu-logo.png         # 武汉大学中文文字
 ```
 
 ## 文档类选项
@@ -36,6 +36,6 @@ WHU-THESIS-LATEX-TEMPLATE   # 根目录
 | 更小的标题 | `\noindent\textbf{<更小的标题>}` | 不建议再添加更小标题，直接加粗显示 |
 
 
+## 致谢
 
-
-## 特别鸣谢
+- [黄正华老师的模板](http://aff.whu.edu.cn/huangzh/)
