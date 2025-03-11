@@ -210,10 +210,31 @@
 %自定义新命令\upcite, 使参考文献引用以上标出现
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
+
 % 调整列表环境的间距，使其更加紧凑
+% 自定义缩进可以使用[leftmargin=2\ccwd]选项，其中\ccwd是当前字体宽度
 \setlist[itemize,enumerate,description]{%
-itemsep=0pt,  % 列表项之间的间距
-parsep=0pt,   % 段落间距
-topsep=0pt,   % 列表前后的额外间距
-leftmargin=*  % 左对齐（自动计算合适的缩进）
+    itemsep=0pt,        % 列表项之间的间距
+    parsep=0pt,         % 段落间距
+    topsep=0pt,         % 列表前后的额外间距
+    leftmargin=2\ccwd   % 左对齐，缩进为两个汉字宽度
 }
+
+
+% 图表格式设置
+\RequirePackage[labelsep=quad]{caption}  % 序号之后空一格写标题
+\captionsetup[table]{font={small}}
+\captionsetup[figure]{font={small}}
+\renewcommand\figurename{\bf\zihao{5} 图}
+\renewcommand\tablename{\bf\zihao{5} 表}
+
+
+% 参考文献格式
+% plain, unsrt, alpha, abbrv, chinesebst 等
+\bibliographystyle{abbrv}
+
+% 允许跨页公式
+\allowdisplaybreaks
+
+% 结束
+\endinput
