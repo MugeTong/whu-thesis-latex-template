@@ -30,14 +30,14 @@
 \setlength{\headheight}{14.5pt}  % 避免页眉高度不足
 \pagestyle{fancy}  % 自定义正文页面
 \fancyhf{}  % 清除以前对页眉页脚的设置
-\fancyhead[C]{武汉大学本科毕业论文（设计）}  % 页眉添加“武汉大学本科毕业论文（设计）”
-\fancyfoot[C]{\songti \zihao{5} \thepage}  % 页脚居中显示页码，如 1
+\fancyhead[C]{\songti\zihao{5}\ziju{0.5}武汉大学本科毕业论文（设计）}  % 页眉添加“武汉大学本科毕业论文（设计）”
+\fancyfoot[C]{\zihao{5} \thepage}  % 页脚居中显示页码，如 1
 % 设定前置页面的页眉页脚，仅包含页码
 \fancypagestyle{frontmatter}{%
     \fancyhead{}  % 清除页眉
     \fancyfoot{}  % 清除页脚
     \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
-    \fancyfoot[C]{\songti \zihao{5} \thepage}
+    \fancyfoot[C]{\zihao{5} \thepage}
 }
 % 让目录页自动使用 frontmatter 样式而不是 plain 样式
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatter}}}
@@ -45,8 +45,8 @@
 \fancypagestyle{plain}{%
     \fancyhead{}  % 清除页眉
     \fancyfoot{}  % 清除页脚
-    \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
-    \fancyfoot[C]{\songti \zihao{5} \thepage}
+    \fancyhead[C]{\songti\zihao{5}\ziju{0.5}武汉大学本科毕业论文（设计）}
+    \fancyfoot[C]{\zihao{5} \thepage}
 }
 % 设置1.5倍行距，字体间距为标准间距，无需设置
 \RequirePackage{setspace}
@@ -170,14 +170,29 @@
         name = {,},
         number = \arabic{chapter},
         format = \centering\heiti\zihao{-2},
-        beforeskip = 0pt,
-        fixskip = true
+        fixskip = true,
+        beforeskip = 0ex,
+        afterskip = 3.5ex,
     },
-    section/format = \heiti\zihao{4}\raggedright,
-    subsection/format = \heiti\zihao{-4}\raggedright,
-    subsubsection/format = \heiti\zihao{-4}\raggedright
+    section = {%
+        format = \heiti\zihao{4}\raggedright,
+        fixskip = true,
+        beforeskip = 3.5ex,
+        afterskip = 3.5ex,
+    },
+    subsection = {%
+        format = \heiti\zihao{-4}\raggedright,
+        fixskip = true,
+        beforeskip = 3ex,
+        afterskip = 3ex,
+    },
+    subsubsection = {%
+        format = \heiti\zihao{-4}\raggedright,
+        fixskip = true,
+        beforeskip = 3ex,
+        afterskip = 3ex,
+    }
 }
-% TODO: 未设置章节标题的间距
 
 
 % 定理类环境设置
