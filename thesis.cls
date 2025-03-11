@@ -40,7 +40,8 @@
 \fancyfoot[C]{\zihao{5} \thepage}
 }
 % 设置1.5倍行距，字体间距为标准间距，无需设置
-\linespread{1.5}
+\RequirePackage{setspace}
+\setstretch{1.625}  % 1.3 * 1.5 / 1.2 = 1.625
 
 
 % 定义论文有关信息的令牌列表
