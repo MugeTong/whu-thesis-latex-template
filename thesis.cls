@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis}[
     2025/03/10
-    v0.0.2
+    v0.0.3
     Wuhan University Thesis Template for Bachelor Degree.
 ]
 \LoadClass[
@@ -84,6 +84,7 @@
 \RequirePackage{enumerate}                  % 拓展列表编号样式
 \RequirePackage{hyperref}                   % 超链接宏包
 \RequirePackage{makecell}                   % 表格特定列居中
+\RequirePackage{enumitem}                   % 列表格式宏包
 
 
 % 定义打印选项，隐藏超链接颜色
@@ -98,14 +99,18 @@
     \hypersetup{citecolor=magenta,linkcolor=blue}
 \fi
 
+
 % 设定图片文件夹目录
 \graphicspath{{figures/}}
+
 
 % 初始化封面创建命令，引入 cover.tex
 \def\makecover{\input{includes/cover}}
 
+
 % 为原创性声明及版权使用授权书创建命令，引入 originality.tex
 \def\makeoriginality{\input{includes/originality}}
+
 
 % 创建摘要环境
 \newcommand\cnabstractname{摘要}
@@ -142,6 +147,7 @@
     \input{includes/abstract}
 }
 
+
 % 设定目录
 \setcounter{tocdepth}{3}  % 目录深度
 \setcounter{secnumdepth}{4}  % 编号深度
@@ -157,6 +163,7 @@
 \renewcommand{\cftsubsecfont}{\zihao{-4}\rmfamily}
 \renewcommand{\cftsubsecpagefont}{\zihao{-4}\rmfamily}
 
+
 % 章节标题设置
 \ctexset{%
     chapter = {%
@@ -169,4 +176,44 @@
     section/format = \heiti\zihao{4}\raggedright,
     subsection/format = \heiti\zihao{-4}\raggedright,
     subsubsection/format = \heiti\zihao{-4}\raggedright
+}
+% TODO: 未设置章节标题的间距
+
+
+% 定理类环境设置
+\theoremstyle{plain}                    % 普通样式
+\theoremheaderfont{\heiti}              % 定理标题的字体是黑体
+\theorembodyfont{\songti}               % 定理内容的字体是宋体
+\theoremindent0em                       % 定理内容不缩进
+\theorempreskip{0pt}                    % 定理前的垂直间距为0
+\theorempostskip{0pt}                   % 定理后的垂直间距为0
+\theoremnumbering{arabic}               % 定理编号使用阿拉伯数字
+%\theoremsymbol{}                       % 定理结束时自动添加的标志（默认没有）
+% 定义常用的定理环境
+\newtheorem{theorem}{\hspace{2em}定理}[section]
+\newtheorem{definition}{\hspace{2em}定义}[section]
+\newtheorem{lemma}{\hspace{2em}引理}[section]
+\newtheorem{corollary}{\hspace{2em}推论}[section]
+\newtheorem{proposition}{\hspace{2em}性质}[section]
+\newtheorem{example}{\hspace{2em}例}[section]
+\newtheorem{remark}{\hspace{2em}注}[section]
+% 证明环境设置
+\theoremstyle{nonumberplain}                % 无编号样式
+\theoremheaderfont{\heiti}                  % 证明标题的字体是黑体
+\theorembodyfont{\normalfont \rm \songti}   % 证明正文的字体是宋体
+\theoremindent0em                           % 证明内容不缩进
+\theoremseparator{\hspace{1em}}             % 证明标题与正文之间有一个空格
+\theoremsymbol{$\square$}                   % 证明结束时自动添加的符号（通常是空心正方形）
+% 定义证明环境
+\newtheorem{proof}{\hspace{2em}证明}
+
+%自定义新命令\upcite, 使参考文献引用以上标出现
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+
+% 调整列表环境的间距，使其更加紧凑
+\setlist[itemize,enumerate,description]{%
+itemsep=0pt,  % 列表项之间的间距
+parsep=0pt,   % 段落间距
+topsep=0pt,   % 列表前后的额外间距
+leftmargin=*  % 左对齐（自动计算合适的缩进）
 }
