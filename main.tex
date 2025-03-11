@@ -25,15 +25,17 @@
 \MajorEnglish{}                                                 % 学科专业英文名
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%添加封面%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pdfbookmark[0]{封面}{title}  % 封面页加到 PDF 书签
 \makecover  % 调用命令，生成论文封面
+\makeoriginality  % 原创性声明及版权使用授权书
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%前置部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
 \pagenumbering{Roman}  % 前置部分使用大写罗马字母编号
 
-% 原创性声明及版权使用授权书
-\makeoriginality
+\makeabstract  % 调用命令，生成摘要
+
+\pdfbookmark[0]{目录}{toc}  % 将目录加入 PDF 书签
+\tableofcontents  % 生成目录
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%论文正文%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter

@@ -34,10 +34,10 @@
 \fancyfoot[C]{\songti \zihao{5} \thepage}  % 页脚居中显示页码，如 1
 % 设定特殊页面如章节的页眉页脚
 \fancypagestyle{plain}{%
-\fancyhead{}  % 清除页眉
-\fancyfoot{}  % 清除页脚
-\renewcommand{\headrulewidth}{0pt}  % 取消页眉线
-\fancyfoot[C]{\zihao{5} \thepage}
+    \fancyhead{}  % 清除页眉
+    \fancyfoot{}  % 清除页脚
+    \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
+    \fancyfoot[C]{\songti \zihao{5} \thepage}
 }
 % 设置1.5倍行距，字体间距为标准间距，无需设置
 \RequirePackage{setspace}
@@ -93,9 +93,45 @@
 
 % 初始化封面创建命令，引入 cover.tex
 \def\makecover{\input{includes/cover}}
-% 初始化原创性声明创建命令，引入 original.tex
-\def\makeoriginal{\input{includes/original}}
-% 初始化摘要创建命令，引入 abstract.tex
-\def\makeabstract{\input{includes/abstract}}
+
+% 为原创性声明及版权使用授权书创建命令，引入 originality.tex
+\def\makeoriginality{\input{includes/originality}}
+
+% 创建摘要环境
+\newcommand\cnabstractname{摘要}
+\newcommand\enabstractname{ABSTRACT}
+\newenvironment{cnabstract}{%
+    \newpage  % 新建页面
+    \thispagestyle{plain}  % 使用 plain 样式，仅包含页码
+    \phantomsection  % 添加锚点
+    \addcontentsline{toc}{chapter}{\cnabstractname}   % 添加到目录
+    % 中文标题
+    {\centering \heiti \zihao{-2} \ziju{1} \cnabstractname \par}
+    \vspace{18pt}
+    % 定义后续文字格式
+    \songti \zihao{-4}
+}{\par}
+
+\newenvironment{enabstract}{%
+    \newpage  % 新建页面
+    \thispagestyle{plain}  % 使用 plain 样式，仅包含页码
+    \phantomsection  % 添加锚点
+    \addcontentsline{toc}{chapter}{\enabstractname}  % 添加到目录
+    % 英文标题
+    {\centering \bfseries \zihao{-2} \enabstractname \par}
+    \vspace{18pt}
+    % 定义后续文字格式
+    \songti \zihao{-4}
+}{\par}
+% 创建关键词环境
+\newcommand\cnkeywordsname{关键词}
+\newcommand\enkeywordsname{Keywords}
+\newcommand\cnkeywords[1]{{\noindent\heiti\zihao{-4}\cnkeywordsname：}#1}
+\newcommand\enkeywords[1]{{\noindent\bfseries\zihao{-4}\enkeywordsname: }#1}
+% 整合并创建摘要部分创建命令，引入 abstract.tex
+\def\makeabstract{%
+    \input{includes/abstract}
+}
+
 % 设定目录
 \ctexset{contentsname={\heiti \zihao{-2} \textmd{目\qquad 录}}}
