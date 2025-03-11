@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis}[
     2025/03/10
-    v0.0.3
+    v0.1.0
     Wuhan University Thesis Template for Bachelor Degree.
 ]
 \LoadClass[
