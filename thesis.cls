@@ -28,10 +28,19 @@
 % 设定页眉页脚
 \RequirePackage{fancyhdr}  % 页眉页脚宏包
 \setlength{\headheight}{14.5pt}  % 避免页眉高度不足
-\pagestyle{fancyplain}  % 自定义正文页面
+\pagestyle{fancy}  % 自定义正文页面
 \fancyhf{}  % 清除以前对页眉页脚的设置
 \fancyhead[C]{武汉大学本科毕业论文（设计）}  % 页眉添加“武汉大学本科毕业论文（设计）”
 \fancyfoot[C]{\songti \zihao{5} \thepage}  % 页脚居中显示页码，如 1
+% 设定前置页面的页眉页脚，仅包含页码
+\fancypagestyle{frontmatter}{%
+    \fancyhead{}  % 清除页眉
+    \fancyfoot{}  % 清除页脚
+    \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
+    \fancyfoot[C]{\songti \zihao{5} \thepage}
+}
+% 让目录页自动使用 frontmatter 样式而不是 plain 样式
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatter}}}
 % 设定特殊页面如章节的页眉页脚
 \fancypagestyle{plain}{%
     \fancyhead{}  % 清除页眉
@@ -67,6 +76,7 @@
 
 
 % 其他包
+\RequirePackage{tocloft}                    % 目录格式宏包
 \RequirePackage{graphicx}                   % 图形宏包
 \RequirePackage{amsmath,amssymb}            % 数学公式字体宏包
 \RequirePackage[amsmath,thmmarks]{ntheorem} % 定理类环境宏包
@@ -102,7 +112,7 @@
 \newcommand\enabstractname{ABSTRACT}
 \newenvironment{cnabstract}{%
     \newpage  % 新建页面
-    \thispagestyle{plain}  % 使用 plain 样式，仅包含页码
+    \thispagestyle{frontmatter}  % 使用 plain 样式，仅包含页码
     \phantomsection  % 添加锚点
     \addcontentsline{toc}{chapter}{\cnabstractname}   % 添加到目录
     % 中文标题
@@ -111,10 +121,9 @@
     % 定义后续文字格式
     \songti \zihao{-4}
 }{\par}
-
 \newenvironment{enabstract}{%
     \newpage  % 新建页面
-    \thispagestyle{plain}  % 使用 plain 样式，仅包含页码
+    \thispagestyle{frontmatter}  % 使用 frontmatter 样式，仅包含页码
     \phantomsection  % 添加锚点
     \addcontentsline{toc}{chapter}{\enabstractname}  % 添加到目录
     % 英文标题
@@ -134,4 +143,30 @@
 }
 
 % 设定目录
-\ctexset{contentsname={\heiti \zihao{-2} \textmd{目\qquad 录}}}
+\setcounter{tocdepth}{3}  % 目录深度
+\setcounter{secnumdepth}{4}  % 编号深度
+% 目录标题格式
+\ctexset{contentsname={\ziju{1}目录}}
+\renewcommand\cfttoctitlefont{\hfill\heiti\zihao{-2}}
+\renewcommand\cftaftertoctitle{\hfill}
+% 调整目录中章节条的字体和粗细
+\renewcommand{\cftchapfont}{\zihao{-4}\bfseries\songti}
+\renewcommand{\cftchappagefont}{\zihao{-4}\bfseries\rmfamily}
+\renewcommand{\cftsecfont}{\zihao{-4}\songti}
+\renewcommand{\cftsecpagefont}{\zihao{-4}\songti}
+\renewcommand{\cftsubsecfont}{\zihao{-4}\rmfamily}
+\renewcommand{\cftsubsecpagefont}{\zihao{-4}\rmfamily}
+
+% 章节标题设置
+\ctexset{%
+    chapter = {%
+        name = {,},
+        number = \arabic{chapter},
+        format = \centering\heiti\zihao{-2},
+        beforeskip = 0pt,
+        fixskip = true
+    },
+    section/format = \heiti\zihao{4}\raggedright,
+    subsection/format = \heiti\zihao{-4}\raggedright,
+    subsubsection/format = \heiti\zihao{-4}\raggedright
+}
