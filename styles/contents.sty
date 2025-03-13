@@ -1,0 +1,37 @@
+% 本文件设置目录的相关格式
+\ProvidesPackage{styles/contents}[
+    2025/03/12
+    v0.1.0
+    Contents format for the thesis template.
+]
+
+% 设定目录
+\setcounter{tocdepth}{3}  % 目录深度
+\setcounter{secnumdepth}{4}  % 编号深度
+% 目录标题格式
+\ctexset{contentsname={\ziju{1}目录}}
+\renewcommand\cfttoctitlefont{\hfill\heiti\zihao{-2}}
+\renewcommand\cftaftertoctitle{\hfill}
+% 目录标题前后间距
+\renewcommand{\cftbeforetoctitleskip}{0pt}
+\renewcommand{\cftaftertoctitleskip}{0pt}
+% 清除章节条前的额外间距
+\renewcommand{\cftbeforechapskip}{0pt}
+\renewcommand{\cftbeforesecskip}{0pt}
+\renewcommand{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftbeforesubsubsecskip}{0pt}
+% 调整目录中章节条的字体和粗细
+\renewcommand{\cftchapfont}{\zihao{-4}\bfseries\songti}
+\renewcommand{\cftchappagefont}{\zihao{-4}\bfseries\rmfamily}
+\renewcommand{\cftsecfont}{\zihao{-4}\songti}
+\renewcommand{\cftsecpagefont}{\zihao{-4}\songti}
+\renewcommand{\cftsubsecfont}{\zihao{-4}\rmfamily}
+\renewcommand{\cftsubsecpagefont}{\zihao{-4}\rmfamily}
+
+% 定义目录生成命令
+\def\makecontents{
+    % 新起一页，存放目录
+    \newpage
+    \pdfbookmark[0]{目录}{toc}  % 将目录加入 PDF 书签
+    \tableofcontents  % 生成目录
+}

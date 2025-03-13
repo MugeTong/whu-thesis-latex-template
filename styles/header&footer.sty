@@ -1,0 +1,38 @@
+% 本文件定义页眉页脚的样式
+\ProvidesPackage{styles/header&footer}[
+    2025/03/12
+    v0.1.0
+    Header and footer style for the thesis template.
+]
+
+% 避免页眉由于添加中文文字导致高度不足, 解决警告
+\setlength{\headheight}{14.5pt}
+
+% 自定义正文页面
+\pagestyle{fancy}
+\fancyhf{}  % 清除以前对页眉页脚的设置
+% 页眉添加“武汉大学本科毕业论文（设计）”
+\fancyhead[C]{\songti\zihao{5}\ziju{0.5}武汉大学本科毕业论文（设计）}
+% 页脚居中显示页码, 如 1
+\fancyfoot[C]{\zihao{5} \thepage}
+
+
+% 设定前置页面的页眉页脚, 仅包含页码
+\fancypagestyle{frontmatter}{%
+    \fancyhead{}  % 清除页眉
+    \fancyfoot{}  % 清除页脚
+    \renewcommand{\headrulewidth}{0pt}  % 取消页眉线
+    \fancyfoot[C]{\zihao{5} \thepage}
+}
+% 让目录页自动使用 frontmatter 样式而不是 plain 样式
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatter}}}
+
+
+
+% 设定特殊页面如章节的页眉页脚
+\fancypagestyle{plain}{%
+    \fancyhead{}  % 清除页眉
+    \fancyfoot{}  % 清除页脚
+    \fancyhead[C]{\songti\zihao{5}\ziju{0.5}武汉大学本科毕业论文（设计）}
+    \fancyfoot[C]{\zihao{5} \thepage}
+}

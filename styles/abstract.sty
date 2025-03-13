@@ -1,0 +1,31 @@
+% 本文件定义摘要的格式
+\ProvidesPackage{styles/abstract}[
+    2025/03/12
+    v0.1.0
+    Abstract format for the thesis template.
+]
+
+% 创建摘要环境
+\newcommand\cnabstractname{摘要}
+\newcommand\enabstractname{ABSTRACT}
+\newenvironment{cnabstract}{%
+    \newpage  % 新建页面
+    \thispagestyle{frontmatter}  % 使用 plain 样式, 仅包含页码
+    \chapter[\cnabstractname]{\ziju{2}\cnabstractname}  % 中文标题
+    % 定义后续文字格式
+    \songti \zihao{-4}
+}{\par}
+\newenvironment{enabstract}{%
+    \newpage  % 新建页面
+    \thispagestyle{frontmatter}  % 使用 frontmatter 样式, 仅包含页码
+    \chapter[\enabstractname]{\bf\enabstractname}  % 英文标题
+    % 定义后续文字格式
+    \songti \zihao{-4}
+}{\par}
+% 创建关键词环境
+\newcommand\cnkeywordsname{关键词}
+\newcommand\enkeywordsname{Keywords}
+\newcommand\cnkeywords[1]{{\noindent\heiti\zihao{-4}\cnkeywordsname：}#1}
+\newcommand\enkeywords[1]{{\noindent\bfseries\zihao{-4}\enkeywordsname: }#1}
+% 整合并创建摘要部分创建命令, 引入 abstract.tex
+\def\makeabstract{\input{includes/abstract}}

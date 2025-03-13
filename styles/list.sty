@@ -1,0 +1,15 @@
+% 本文件控制常用的列表类环境的格式
+\ProvidesPackage{styles/list}[
+    2025/03/12
+    v0.1.0
+    List format for the thesis template.
+]
+
+% 调整列表环境的间距, 使其更加紧凑
+% 自定义缩进可以使用[leftmargin=2\ccwd]选项, 其中\ccwd是当前字体宽度
+\setlist[itemize,enumerate,description]{%
+    itemsep=0pt,        % 列表项之间的间距
+    parsep=0pt,         % 段落间距
+    topsep=0pt,         % 列表前后的额外间距
+    leftmargin=2\ccwd   % 左对齐, 缩进为两个汉字宽度
+}

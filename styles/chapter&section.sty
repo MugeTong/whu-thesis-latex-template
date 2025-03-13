@@ -1,0 +1,36 @@
+% 本文件定义章节条的格式和前后间距
+\ProvidesPackage{styles/chapter&section}[
+    2025/03/12
+    v0.1.0
+    Chapter and section format for the thesis template.
+]
+
+% 章节标题设置
+\ctexset{%
+    chapter = {%
+        name = {,},
+        number = \arabic{chapter},
+        format = \centering\heiti\zihao{-2},
+        fixskip = true,
+        beforeskip = 0ex,
+        afterskip = 3.5ex,
+    },
+    section = {%
+        format = \heiti\zihao{4}\raggedright,
+        fixskip = true,
+        beforeskip = 3.5ex,
+        afterskip = 3.5ex,
+    },
+    subsection = {%
+        format = \heiti\zihao{-4}\raggedright,
+        fixskip = true,
+        beforeskip = 3ex,
+        afterskip = 3ex,
+    },
+    subsubsection = {%
+        format = \heiti\zihao{-4}\raggedright,
+        fixskip = true,
+        beforeskip = 3ex,
+        afterskip = 3ex,
+    }
+}

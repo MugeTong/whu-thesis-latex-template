@@ -1,0 +1,28 @@
+% 本文件定义了模板的选项, 用于控制模板的一些行为.
+\ProvidesPackage{styles/class-options}[
+    2025/03/12
+    v0.1.0
+    Options for the thesis template.
+]
+
+% 选项名称      类型      默认值    说明
+% forprint     store     false    交付打印时添加, 避免彩色链接字迹打印偏淡
+%
+%
+%
+%
+%
+
+
+
+% 定义打印选项, 隐藏超链接颜色
+\newif\ifprint\printfalse
+\DeclareOption{forprint}{\printtrue}
+\ProcessOptions\relax
+\ifprint
+    % 启用打印时, 隐藏超链接颜色
+    \hypersetup{hidelinks}
+\else
+    % 未启用时, 引用颜色为洋红色, 链接颜色为蓝色
+    \hypersetup{citecolor=magenta,linkcolor=blue}
+\fi

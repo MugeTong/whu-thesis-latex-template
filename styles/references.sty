@@ -1,0 +1,13 @@
+% 本文件定义参考文献的格式以及自定义的引用命令
+\ProvidesPackage{styles/references}[
+    2025/03/12
+    v0.1.0
+    References format and custom citation commands.
+]
+
+%自定义新命令\upcite, 使参考文献引用以上标出现
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+
+% 参考文献格式
+% plain, unsrt, alpha, abbrv, chinesebst 等
+\bibliographystyle{abbrv}
