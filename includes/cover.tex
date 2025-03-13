@@ -14,7 +14,11 @@
 \vspace*{2.1cm}  % 强制插入顶部空白
 
 % 武汉大学校徽
-\includegraphics[width=0.33\textwidth]{whu-logo.png}
+\ifanonymous
+    \includegraphics[width=0.33\textwidth]{whu-logo-anonymous.png}
+\else
+    \includegraphics[width=0.33\textwidth]{whu-logo.png}
+\fi
 \vspace{1.34cm}
 
 %  本科毕业论文（设计）文本
@@ -28,6 +32,14 @@
 % 记录最长的字符串长度
 \newlength{\covermaxlen}
 \newlength{\covertestlen}
+% 处理匿名信息
+\ifanonymous
+    \AuthorChinese={}
+    \MajorChinese={}
+    \StudentNumber={}
+    \DepartmentChinese={}
+    \SupervisorChinese={}
+\fi
 
 % 作者信息
 {\songti \zihao{4}

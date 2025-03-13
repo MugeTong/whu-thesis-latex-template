@@ -37,24 +37,23 @@
 
 
 \RequirePackage{styles/class-packages}      % 加载宏包
+\RequirePackage{styles/class-options}       % 加载选项
+
 
 \RequirePackage{styles/page-margin}         % 页边距设置
-\RequirePackage{styles/header-footer}       % 页眉页脚设置
+\RequirePackage{styles/header&footer}       % 页眉页脚设置
 \RequirePackage{styles/line-spacing}        % 行距设置
-\RequirePackage{styles/figure-table}        % 图表设置
+\RequirePackage{styles/figure&table}        % 图表设置
 \RequirePackage{styles/theorem}             % 定理类环境设置
 \RequirePackage{styles/list}                % 常用列表环境设置
 \RequirePackage{styles/references}          % 参考文献设置
-
-
-\RequirePackage{styles/class-options}       % 加载选项
 
 
 \RequirePackage{styles/cover}               % 封面设置
 \RequirePackage{styles/copyright}           % 原创性声明及版权使用授权书样式
 \RequirePackage{styles/abstract}            % 摘要设置
 \RequirePackage{styles/contents}            % 目录设置
-\RequirePackage{styles/chapter-section}     % 章节标题设置
+\RequirePackage{styles/chapter&section}     % 章节标题设置
 
 % 结束
 \endinput

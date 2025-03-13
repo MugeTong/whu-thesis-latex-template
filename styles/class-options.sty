@@ -5,9 +5,9 @@
     Options for the thesis template.
 ]
 
-% 选项名称      类型      默认值    说明
-% forprint     store     false    交付打印时添加, 避免彩色链接字迹打印偏淡
-%
+% 选项名称       类型           默认值      说明
+% forprint      Store True     -          交付打印时添加, 避免彩色链接字迹打印偏淡
+% anonymous     Store True     -          盲审时添加, 隐藏作者信息
 %
 %
 %
@@ -26,3 +26,16 @@
     % 未启用时, 引用颜色为洋红色, 链接颜色为蓝色
     \hypersetup{citecolor=magenta,linkcolor=blue}
 \fi
+
+% 定义匿名选项, 隐藏作者信息
+\newif\ifanonymous\anonymousfalse
+\DeclareOption{anonymous}{\anonymoustrue}
+\ProcessOptions\relax
+% 记录是否需要清空
+\newcommand{\isanonymous}[2]{%
+    \ifanonymous
+        #1
+    \else
+        #2
+    \fi
+}
