@@ -25,22 +25,38 @@
 {\kaishu \zihao{1} \the\TitleChinese}
 \vfill  % 填充中间的空白
 
+% 记录最长的字符串长度
+\newlength{\covermaxlen}
+\newlength{\covertestlen}
+
 % 作者信息
 {\songti \zihao{4}
-\begin{tabular}{c p{5.2cm}<{\centering}}
-    \makebox[5em][s]{姓 \hfill 名：} & \makebox[8em][s]{\the\AuthorChinese} \\[1ex]
-    \makebox[5em][s]{学 \hfill 号：} & \the\StudentNumber \\[1ex]
-    \makebox[5em][s]{专 \hfill 业：} & \makebox[8em][s]{\the\MajorChinese} \\[1ex]
-    \makebox[5em][s]{学 \hfill 院：} & \makebox[8em][s]{\the\SchoolChinese} \\[1ex]
-    \makebox[5em][s]{指 \hfill 导 \hfill 老 \hfill 师：} & \makebox[8em][s]{\the\SupervisorChinese} \\[1ex]
-\end{tabular}
+    % 计算最长字符串长度
+    \settowidth{\covermaxlen}{\the\AuthorChinese}
+    \settowidth{\covertestlen}{\the\MajorChinese}
+    \ifthenelse{\covertestlen>\covermaxlen}{\setlength{\covermaxlen}{\covertestlen}}{}
+    \settowidth{\covertestlen}{\the\StudentNumber}
+    \ifthenelse{\covertestlen>\covermaxlen}{\setlength{\covermaxlen}{\covertestlen}}{}
+    \settowidth{\covertestlen}{\the\DepartmentChinese}
+    \ifthenelse{\covertestlen>\covermaxlen}{\setlength{\covermaxlen}{\covertestlen}}{}
+    \settowidth{\covertestlen}{\the\SupervisorChinese}
+    \ifthenelse{\covertestlen>\covermaxlen}{\setlength{\covermaxlen}{\covertestlen}}{}
+
+    % 创建表格
+    \begin{tabular}{c p{5.2cm}<{\centering}}
+        \makebox[5\ccwd][s]{姓 \hfill 名：} & \makebox[\covermaxlen][s]{\the\AuthorChinese} \\
+        \makebox[5\ccwd][s]{学 \hfill 号：} & \makebox[\covermaxlen]{\the\StudentNumber} \\
+        \makebox[5\ccwd][s]{专 \hfill 业：} & \makebox[\covermaxlen][s]{\the\MajorChinese} \\
+        \makebox[5\ccwd][s]{学 \hfill 院：} & \makebox[\covermaxlen][s]{\the\DepartmentChinese} \\
+        \makebox[5\ccwd][s]{指 \hfill 导 \hfill 老 \hfill 师：} & \makebox[\covermaxlen][s]{\the\SupervisorChinese} \\[1ex]
+    \end{tabular}
 }
 \vspace{4cm}
 
 % 日期
 {\songti \zihao{4} \ziju{0.2} \the\DateChinese}
 
-\end{center}%
+\end{center}
 
 % 恢复cls文件中定义的页边距
 \restoregeometry
