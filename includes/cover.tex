@@ -14,7 +14,7 @@
 \vspace*{2.1cm}  % 强制插入顶部空白
 
 % 武汉大学校徽
-\ifanonymous
+\ifanonymous%
     \includegraphics[width=0.33\textwidth]{whu-logo-anonymous.png}
 \else
     \includegraphics[width=0.33\textwidth]{whu-logo.png}
@@ -22,18 +22,20 @@
 \vspace{1.34cm}
 
 %  本科毕业论文（设计）文本
-{\songti \zihao{2} \textbf{本科毕业论文（设计）}}
-\vspace{3.25cm}
+{\songti\zihao{2}\bfseries 本科毕业论文（设计）}
+\vspace{2.6cm}
 
 % 论文标题
-{\kaishu \zihao{1} \the\TitleChinese}
+\begin{spacing}{3}
+    {\kaishu\zihao{1} \the\TitleChinese}
+\end{spacing}
 \vfill  % 填充中间的空白
 
 % 记录最长的字符串长度
 \newlength{\covermaxlen}
 \newlength{\covertestlen}
 % 处理匿名信息
-\ifanonymous
+\ifanonymous%
     \AuthorChinese={}
     \MajorChinese={}
     \StudentNumber={}
@@ -42,7 +44,7 @@
 \fi
 
 % 作者信息
-{\songti \zihao{4}
+{\songti\zihao{4}
     % 计算最长字符串长度
     \settowidth{\covermaxlen}{\the\AuthorChinese}
     \settowidth{\covertestlen}{\the\MajorChinese}
@@ -66,9 +68,9 @@
 \vspace{4cm}
 
 % 日期
-{\songti \zihao{4} \ziju{0.2} \the\DateChinese}
+{\songti\zihao{4} \ziju{0.2} \the\DateChinese}
 
 \end{center}
 
 % 恢复cls文件中定义的页边距
-\restoregeometry
+\restoregeometry%
