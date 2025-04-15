@@ -16,6 +16,7 @@ WHU-THESIS-LATEX-TEMPLATE   # 根目录
 │      cover.tex            # 封面
 │      originality.tex      # 原创性声明及版权使用授权书
 │      abstract.tex         # 中英文摘要
+│      reference.bib        # 参考文献
 ├─styles                    # 样式文件夹
 │      ....sty              # 样式文件(略)
 ├─figures                   # 图片文件夹, 存放图像
@@ -31,6 +32,7 @@ WHU-THESIS-LATEX-TEMPLATE   # 根目录
 | :--- | :--- | :--- | :--- |
 | `forprint` | Store True | - | 是否隐藏连接颜色, 用于打印 |
 | `anonymous` | Store True | - | 是否匿名, 用于盲审 |
+| `addnocite` | Store True | - | 是否显示未引用的参考文献 |
 
 ## 具体使用
 
