@@ -11,3 +11,16 @@
 % 参考文献格式
 % plain, unsrt, alpha, abbrv, chinesebst 等
 \bibliographystyle{abbrv}
+
+% 创建引用命令
+\def\makereferences{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{参考文献}
+    \ifaddnocite
+        \nocite{*}  % 显示所有写在文件中的文献
+        \bibliography{includes/references}  % 参考文献文件
+    \else
+        \bibliography{includes/references}  % 参考文献文件
+    \fi
+}

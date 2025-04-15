@@ -1,9 +1,9 @@
 %% 请使用 XeLaTeX 编译本文.
 % 选项名称       类型           默认值      说明
-% forprint      Store True     -          交付打印时添加, 避免彩色链接字迹打印偏淡
-% anonymous     Store True     -          盲审时添加, 隐藏作者信息
-%
-\documentclass[forprint]{thesis}
+% forprint      Store True     -          交付打印时添加，避免彩色链接字迹打印偏淡
+% anonymous     Store True     -          盲审时添加，隐藏作者信息
+% addnocite     Store True     -          显示所有参考文献, 默认仅显示引用的文献
+\documentclass[forprint,addnocite]{thesis}
 
 % 整个文档开始
 \begin{document}
@@ -27,29 +27,23 @@
 \MajorEnglish{}                                                 % 学科专业英文名
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%添加封面%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makecover  % 调用命令，生成论文封面
-\makecopyright  % 原创性声明及版权使用授权书
+\makecover%  % 调用命令，生成论文封面
+\makecopyright%  % 原创性声明及版权使用授权书
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%前置部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frontmatter
+\frontmatter%
 \pagenumbering{Roman}  % 前置部分使用大写罗马字母编号
 % 调用命令，生成摘要
-\makeabstract
-% 调用命令, 生成目录
-\makecontents
+\makeabstract%
+% 调用命令，生成目录
+\makecontents%
 % 以下是正文部分
-\mainmatter
+\mainmatter%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%论文正文%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{绪论}
 
 
-\section{研究背景}
-
-\section{看看今天中午吃什么}
-\subsection{看起来不错的}
-
-
-
-
+% 参考文献
+\makereferences%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%尾部空白%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 尾部空白页

@@ -8,7 +8,7 @@
 % 选项名称       类型           默认值      说明
 % forprint      Store True     -          交付打印时添加, 避免彩色链接字迹打印偏淡
 % anonymous     Store True     -          盲审时添加, 隐藏作者信息
-%
+% addnocite     Store True     -          显示所有参考文献, 默认仅显示引用的文献
 %
 %
 %
@@ -24,7 +24,7 @@
     \hypersetup{hidelinks}
 \else
     % 未启用时, 引用颜色为洋红色, 链接颜色为蓝色
-    \hypersetup{citecolor=magenta,linkcolor=blue}
+    \hypersetup{colorlinks,citecolor=magenta,linkcolor=blue}
 \fi
 
 % 定义匿名选项, 隐藏作者信息
@@ -39,3 +39,8 @@
         #2
     \fi
 }
+
+% 定义引用选项, 显示所有bib文件中的文献
+\newif\ifaddnocite\addnocitefalse
+\DeclareOption{addnocite}{\addnocitetrue}
+\ProcessOptions\relax
