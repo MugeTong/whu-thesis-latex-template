@@ -10,6 +10,9 @@
     zihao=-4,  % 正文字号为小四
 ]{ctexbook}  % 使用 ctexbook 文档类
 \setmainfont{Times New Roman}
+% 重新定义宋体, 增加粗体
+\let\songti\relax
+\newCJKfontfamily\songti{SimSun}[AutoFakeBold]
 % 将用户定义的其他选项传递给 ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
