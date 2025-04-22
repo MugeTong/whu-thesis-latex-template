@@ -5,15 +5,37 @@
     Table and Figure Format
 ]
 
-% 注意: 由于表格tabular环境中的字体大小和行距与正文相同
+% 注意: 由于表格tabular环境中的字体大小与正文相同
 % 因此, 在使用表格式需要在table环境中额外添加\small命令以获取五号字体
 
 % 图表格式设置
 \captionsetup{labelsep=quad}                        % 序号之后空一格写标题
-\captionsetup[table]{font={small, bf}}              % 表格标题字体小号, 即五号, 加粗
-\captionsetup[figure]{font={small, bf}}             % 图片标题字体小号, 即五号, 加粗
-\renewcommand\figurename{\bf\zihao{5} 图}           % 图片标题格式五号
-\renewcommand\tablename{\bf\zihao{5} 表}            % 表格标题格式五号
+\DeclareCaptionFont{songti}{\songti}                % 由于重定义过宋体，这里需要显示声明
+% 表格标题字体小号, 即五号, 加粗, 宋体.
+\captionsetup[table]{
+    font={small,bf,rm,songti},
+    skip=2pt,
+}
+% 图片标题字体小号, 即五号, 加粗, 宋体.
+\captionsetup[figure]{
+    font={small,bf,rm,songti},
+    skip=4pt,
+}
+\renewcommand\figurename{\bf\songti\zihao{5} 图}    % 图片标题格式五号
+\renewcommand\tablename{\bf\songti\zihao{5} 表}     % 表格标题格式五号
+
+
+% 图表内容设置
+% 在表格和图片命令中增加两个vspace调整间距
+\AtBeginEnvironment{table}{
+    \vspace{-8pt}
+    \renewcommand{\arraystretch}{1.2}  % 设置表格行距
+}
+\AtEndEnvironment{table}{
+    \vspace{-18pt}
+}
+\AtBeginEnvironment{figure}{\vspace{-10pt}}
+\AtEndEnvironment{figure}{\vspace{-10pt}}
 
 
 % 设定图片文件夹目录, 这样无论是相对导入还是直接输入文件名都可以正常解析
