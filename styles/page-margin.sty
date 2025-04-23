@@ -5,12 +5,18 @@
     Page margin for the thesis template.
 ]
 
+% 上边距 -> top
+% 下边距 -> bottom
+% 页眉顶端距离 -> top - headheight - headsep
+% 页脚底端距离 -> bottom - footskip
 % 设置页边距
 \geometry{
     top=2.5truecm,
     bottom=2truecm,
     left=2.5truecm,
     right=2truecm,
-    % includefoot,  % 页脚计入页边距
+    headheight=0.5truecm,  % 设定页眉高度，解决字体高度警告
+    headsep=0.5truecm,  % 页眉与正文的间距
+    footskip=0.5truecm,  % 页脚底部与正文的间距
     xetex,  % 指定 XeTeX 引擎
 }
