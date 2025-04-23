@@ -3,13 +3,13 @@
 .vscode/!settings.json
 
 # 编译中间文件
-*.aux
-*.log
-*.out
-*.toc
-*.thm
-*.synctex.gz
-*.synctex(busy)
-*.bbl
-*.blg
-*.pdf
+/*.aux
+/*.log
+/*.out
+/*.toc
+/*.thm
+/*.synctex.gz
+/*.synctex(busy)
+/*.bbl
+/*.blg
+/*.pdf
