@@ -1,18 +1,24 @@
 % 提供一个武汉大学学士学位毕业论文模板, 本模板基于 ctexbook 文档类
 \ProvidesClass{thesis}[
     2025/03/10
-    v0.1.2
+    v0.1.3
     Wuhan University Thesis Template for Bachelor Degree.
 ]
 \LoadClass[
     a4paper,  % A4 纸张
     oneside,  % 单面打印
     zihao=-4,  % 正文字号为小四
+    fontset=none,  % 不使用默认字体设置
 ]{ctexbook}  % 使用 ctexbook 文档类
+
+% 重新定义所需字体
+\newCJKfontfamily\songti{SimSun}[AutoFakeBold]  % 增加伪粗体
+\newCJKfontfamily\heiti{SimHei}
+\newCJKfontfamily\kaishu{KaiTi}
+% 设置默认字体, 中文使用宋体, 英文使用 Times New Roman
+\setCJKmainfont[AutoFakeBold]{SimSun}
 \setmainfont{Times New Roman}
-% 重新定义宋体, 增加粗体
-\let\songti\relax
-\newCJKfontfamily\songti{SimSun}[AutoFakeBold]
+
 % 将用户定义的其他选项传递给 ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
