@@ -35,3 +35,13 @@
 
 % 允许跨页公式
 \allowdisplaybreaks
+
+% 设置公式与正文之间的间距
+\AtBeginEnvironment{equation}{
+    \setlength{\abovedisplayskip}{6pt}
+    \setlength{\belowdisplayskip}{6pt}
+}
+\AtBeginEnvironment{align}{
+    \setlength{\abovedisplayskip}{6pt}
+    \setlength{\belowdisplayskip}{6pt}
+}
