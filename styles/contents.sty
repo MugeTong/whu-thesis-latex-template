@@ -27,6 +27,10 @@
 \renewcommand{\cftsecpagefont}{\zihao{-4}\songti}
 \renewcommand{\cftsubsecfont}{\zihao{-4}\rmfamily}
 \renewcommand{\cftsubsecpagefont}{\zihao{-4}\rmfamily}
+% 在章节标题后添加点
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
+% 调整点的间距
+\renewcommand{\cftdotsep}{2}
 
 % 定义目录生成命令
 \def\makecontents{
