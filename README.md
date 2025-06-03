@@ -1,10 +1,18 @@
 # WHU-THESIS-LATEX-TEMPLATE
 武汉大学学士学位毕业论文 LaTeX 模板(2025).
 
+本代码库已于2025年5月20日完成所有的核心任务开发, 并符合武汉大学电气与自动化学院给定的论文格式要求. 该模板曾被使用, 其论文获得过本科优秀毕业论文. 后续改进将着重针对模板的使用进行教程开发.
+
 ## 快速开始
-下载模板文件, 使用 `XeLaTeX` 编译 `main.tex` 即可.
-> [!NOTE]
-> 由于字体库的原因, 建议最后再在windows上编译检查.
+### 在VS Code上编辑
+1. 下载该库并解压, 使用VS Code打开根目录
+2. 下载插件 `LaTeX Workshop`, 并确保你的电脑上安装了LaTeX
+3. 进入 `main.tex` 文件进行编译.
+### 在Overleaf上编辑
+1. 下载模板文件并上传至overleaf
+2. 指定入口文件为 `main.tex`
+3. 使用 `XeLaTeX` 编译即可.
+
 
 ## 目录结构
 ```sh
@@ -17,6 +25,7 @@ WHU-THESIS-LATEX-TEMPLATE   # 根目录
 │      originality.tex      # 原创性声明及版权使用授权书
 │      abstract.tex         # 中英文摘要
 │      reference.bib        # 参考文献
+│      acknowledgements.tex # 致谢
 ├─styles                    # 样式文件夹
 │      ....sty              # 样式文件(略)
 ├─figures                   # 图片文件夹, 存放图像
