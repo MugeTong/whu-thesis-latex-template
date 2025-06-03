@@ -1,0 +1,20 @@
+% 本文件定义致谢部分的格式与排版规则
+\ProvidesPackage{styles/acknowledgements}[
+    2025/05/02
+    v0.1.0
+    Acknowledgements format and layout settings.
+]
+
+% 创建致谢环境
+\newcommand\acknowledgementsname{致谢}
+\newenvironment{acknowledgements}{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\acknowledgementsname} % 添加到目录
+    \chapter*{\ziju{2}\acknowledgementsname} % 中文标题
+    % 定义后续文字格式
+    \songti \zihao{-4}
+}{\par}
+
+% 整合并创建摘要部分创建命令, 引入 acknowledgementsname.tex
+\def\makeacknowledgements{\input{includes/acknowledgements}}

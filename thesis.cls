@@ -61,6 +61,7 @@
 \RequirePackage{styles/cover}               % 封面设置
 \RequirePackage{styles/copyright}           % 原创性声明及版权使用授权书样式
 \RequirePackage{styles/abstract}            % 摘要设置
+\RequirePackage{styles/acknowledgements}    % 致谢设置
 \RequirePackage{styles/contents}            % 目录设置
 \RequirePackage{styles/chapter&section}     % 章节标题设置
 
